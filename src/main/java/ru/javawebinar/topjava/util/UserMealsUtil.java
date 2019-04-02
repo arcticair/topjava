@@ -39,7 +39,7 @@ public class UserMealsUtil {
     public static List<UserMealWithExceed>  getFilteredWithExceededWithLoops(List<UserMeal> mealList, LocalTime startTime, LocalTime endTime, int caloriesPerDay) {
         int totalCalories = 0;
         List<UserMealWithExceed> res = new ArrayList<>();
-        Boolean bu = false;
+        boolean bu = false;
         for (UserMeal meal: mealList){
             if (meal.getDateTime().toLocalTime().isAfter(startTime) && meal.getDateTime().toLocalTime().isBefore(endTime)){
                 totalCalories += meal.getCalories();
