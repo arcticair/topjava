@@ -24,10 +24,11 @@ public class UserMealsUtil {
                 new UserMeal(LocalDateTime.of(2015, Month.MAY, 31,13,0), "Обед", 500),
                 new UserMeal(LocalDateTime.of(2015, Month.MAY, 31,20,0), "Ужин", 510)
         );
-        List<UserMealWithExceed> rt =  getFilteredWithExceeded(mealList, LocalTime.of(7, 0), LocalTime.of(11,0), 200);
-        System.out.println(rt);
-//        .toLocalDate();
-//        .toLocalTime();
+        List<UserMealWithExceed> rt =  getFilteredWithExceededWithLoops(mealList, LocalTime.of(7, 0), LocalTime.of(11,0), 2030);
+        List<UserMealWithExceed> rrt =  getFilteredWithExceededWithStreams(mealList, LocalTime.of(7, 0), LocalTime.of(11,0), 2030);
+        rt.forEach(System.out::println);
+        System.out.println("===");
+        rt.forEach(System.out::println);
     }
 
     public static List<UserMealWithExceed> getFilteredWithExceededWithStreams(List<UserMeal> mealList, LocalTime startTime, LocalTime endTime, int caloriesPerDay) {
